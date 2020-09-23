@@ -1,0 +1,85 @@
+$dark-background: hsl(207, 26%, 17%);
+$light-background: hsl(0, 0%, 98%);
+$dark-elements: hsl(209, 23%, 22%);
+$dark-text__light-elements: hsl(0, 0%, 100%);
+$light-text: hsl(200, 15%, 8%);
+$input-text: hsl(0, 0%, 52%);
+$font-fam: 'Nunito Sans', sans-serif;
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: $font-fam;
+  margin: 0;
+  width: 100%;
+  background: $dark-background;
+}
+
+// header section 
+header{
+  background: $dark-elements;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  white-space: nowrap;
+
+  .header-text{
+    margin: 0;
+    color: $dark-text__light-elements;
+    font-size: 1rem;
+  }
+}
+
+.switch-mode{
+  display: flex;
+  align-items: center;
+
+  .mode{
+    background: $dark-elements;
+    border: none;
+    color: $dark-text__light-elements;
+    font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
+  }
+
+  img{
+    cursor: pointer;
+  }
+}
+
+// nav section 
+nav{
+  padding: 0 1rem;
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $dark-elements;
+  padding: 0.5rem;
+  margin-top: 1rem;
+
+  input{
+    background: $dark-elements;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: $dark-text__light-elements;
+  }
+
+  input::placeholder{
+    color: $dark-text__light-elements;
+    
+  }
+
+  img{
+    width: 20px;
+    height: 30px;
+  }
+}
