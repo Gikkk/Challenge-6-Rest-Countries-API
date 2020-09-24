@@ -58,28 +58,99 @@ nav{
 
 .search{
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   background: $dark-elements;
   padding: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  border-radius: 0.3rem;
 
   input{
     background: $dark-elements;
     border: none;
     outline: none;
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-    font-size: 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: 0.8rem;
     color: $dark-text__light-elements;
-  }
-
-  input::placeholder{
-    color: $dark-text__light-elements;
-    
   }
 
   img{
-    width: 20px;
-    height: 30px;
+    margin-left: 1.2rem;
+    width: 15px;
+    height: 25px;
+  }
+}
+
+.filter{
+  width: 60%;
+  margin: 2rem 0 0 0;
+  background: $dark-elements;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.3rem;
+
+  button{
+    padding: 0.8rem 1.5rem 0.8rem 1.5rem;
+    font-size: 0.8rem;
+    border: none;
+    outline: none;
+    background: $dark-elements;
+    color: $dark-text__light-elements;
+    border-radius: 0.3rem;
+  }
+
+  img{
+    width: 10px;
+    height: 12px;
+    margin: 0 1rem 0 0;
+  }
+}
+
+.filter-list{
+  width: 60%;
+  margin: 0.3rem 0 0 0;
+  background: $dark-elements;
+  border-radius: 0.3rem;
+  list-style: none;
+  padding: 1rem 0 1rem 1.5rem;
+  color: $dark-text__light-elements;
+  display: none;
+
+  li{
+    margin: 0.5rem 0 0.5rem 0;
+  }
+}
+
+// main section 
+.countries{
+  display: grid;
+  row-gap: 2rem;
+  margin: 2rem 3rem;
+
+  .country-list{
+    background: $dark-elements;
+    color: $dark-text__light-elements;
+    border-radius: 0.4rem;
+  }
+
+  img{
+    width: 100%;
+    border-radius: 0.4rem 0.4rem 0 0;
+  }
+
+  .country-name{
+    padding: 0 0 0 2rem;
+    margin: 1rem 0 0 0;
+  }
+
+  ul{
+    list-style: none;
+    padding: 0 0 1rem 2rem;
+    font-weight: 600;
+  }
+
+  span{
+    font-weight: 300;
   }
 }

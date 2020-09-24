@@ -1,3 +1,6 @@
+const countries = document.querySelector('.countries'); 
+
+
 const sendHttpRequest = (method, url, data) => {
   return fetch(url, {
     method: method,
@@ -16,8 +19,20 @@ const sendHttpRequest = (method, url, data) => {
 };
 
 const getData = () => {
-  sendHttpRequest('GET', 'https://restcountries.eu/rest/v2/all').then(responseData => {
-    console.log(responseData);
+  sendHttpRequest('GET', 'https://restcountries.eu/rest/v2/all').then(responseData => { 
+  for(let i = 0; i < responseData.length; i++){
+    const countryList = document.createElement('div');  
+    countryList.className = "country-list"; 
+    countryList.innerHTML = `
+      <img src="${responseData[i].flag}" alt="">
+      <h2 class="country-name">${responseData[i].name}</h2>
+      <ul>
+        <li>Population: <span class="population">${responseData[i].population}</span></li>
+        <li>Region: <span class="region">${responseData[i].region}</span></li>
+        <li>Capital: <span class="capital">${responseData[i].capital}</span></li>
+      </ul>`
+    countries.appendChild(countryList);
+  }
   });
 };
 

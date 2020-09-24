@@ -37,22 +37,76 @@ nav {
 
 .search {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   background: #2b3945;
   padding: 0.5rem;
-  margin-top: 1rem; }
+  margin-top: 1.5rem;
+  border-radius: 0.3rem; }
   .search input {
     background: #2b3945;
     border: none;
     outline: none;
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-    font-size: 1rem;
-    color: white; }
-  .search input::placeholder {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: 0.8rem;
     color: white; }
   .search img {
-    width: 20px;
-    height: 30px; }
+    margin-left: 1.2rem;
+    width: 15px;
+    height: 25px; }
+
+.filter {
+  width: 60%;
+  margin: 2rem 0 0 0;
+  background: #2b3945;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.3rem; }
+  .filter button {
+    padding: 0.8rem 1.5rem 0.8rem 1.5rem;
+    font-size: 0.8rem;
+    border: none;
+    outline: none;
+    background: #2b3945;
+    color: white;
+    border-radius: 0.3rem; }
+  .filter img {
+    width: 10px;
+    height: 12px;
+    margin: 0 1rem 0 0; }
+
+.filter-list {
+  width: 60%;
+  margin: 0.3rem 0 0 0;
+  background: #2b3945;
+  border-radius: 0.3rem;
+  list-style: none;
+  padding: 1rem 0 1rem 1.5rem;
+  color: white;
+  display: none; }
+  .filter-list li {
+    margin: 0.5rem 0 0.5rem 0; }
+
+.countries {
+  display: grid;
+  row-gap: 2rem;
+  margin: 2rem 3rem; }
+  .countries .country-list {
+    background: #2b3945;
+    color: white;
+    border-radius: 0.4rem; }
+  .countries img {
+    width: 100%;
+    border-radius: 0.4rem 0.4rem 0 0; }
+  .countries .country-name {
+    padding: 0 0 0 2rem;
+    margin: 1rem 0 0 0; }
+  .countries ul {
+    list-style: none;
+    padding: 0 0 1rem 2rem;
+    font-weight: 600; }
+  .countries span {
+    font-weight: 300; }
 
 /*# sourceMappingURL=main.css.map */
