@@ -1,0 +1,60 @@
+.navbar{
+  padding: 0 1rem;
+}
+
+.navbar-container{
+  @extend .shared-position;
+  justify-content: left;
+  background: $dark-elements;
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  border-radius: 0.3rem;
+
+  .navbar-input{
+    @extend .shared-btn;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: $input-text;
+    width: 100%;
+  }
+
+  .navbar-img{
+    margin-left: 1.2rem;
+    width: 0.9375rem;
+    height: 1.5625rem;
+  }
+}
+
+.filter{
+  @extend .shared-position;
+  width: 60%;
+  margin: 1.5rem 0 0 0;
+  background: $dark-elements;
+  justify-content: space-between;
+  border-radius: 0.3rem;
+
+  .filter-btn{
+    @extend .shared-btn;
+    padding: 1rem;
+    color: $dark-text__light-elements;
+    border-radius: 0.3rem;
+  }
+
+  .filter-img{
+    width: 0.625rem;
+    height: 0.75rem;
+    margin: 0 1rem 0 0;
+  }
+}
+
+.filter-list{
+  @extend .shared-color;
+  width: 60%;
+  margin: 0.3rem 0 0 0;
+  list-style: none;
+  padding: 1rem 0 1rem 1.5rem;
+  display: none;
+
+  .filter-item{
+    margin: 0.5rem 0 0.5rem 0;
+  }
+}

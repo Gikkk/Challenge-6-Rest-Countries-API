@@ -24,12 +24,12 @@ const getData = () => {
     const countryList = document.createElement('div');  
     countryList.className = "country-list"; 
     countryList.innerHTML = `
-      <img src="${responseData[i].flag}" alt="">
+      <img src="${responseData[i].flag}" alt="flag" class="country-img">
       <h2 class="country-name">${responseData[i].name}</h2>
-      <ul>
-        <li>Population: <span class="population">${responseData[i].population}</span></li>
-        <li>Region: <span class="region">${responseData[i].region}</span></li>
-        <li>Capital: <span class="capital">${responseData[i].capital}</span></li>
+      <ul class="country-items">
+        <li>Population: <span class="country-details">${responseData[i].population}</span></li>
+        <li>Region: <span class="country-details">${responseData[i].region}</span></li>
+        <li>Capital: <span class="country-details">${responseData[i].capital}</span></li>
       </ul>`
     countries.appendChild(countryList);
   }

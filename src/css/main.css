@@ -7,106 +7,142 @@ body {
   width: 100%;
   background: #202c37; }
 
-header {
-  background: #2b3945;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  white-space: nowrap; }
-  header .header-text {
-    margin: 0;
-    color: white;
-    font-size: 1rem; }
-
-.switch-mode {
+.shared-position, .header, .switch-mode, .navbar-container, .filter {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
   display: flex;
   align-items: center; }
-  .switch-mode .mode {
-    background: #2b3945;
-    border: none;
-    color: white;
-    font-size: 0.9rem;
-    outline: none;
-    cursor: pointer; }
-  .switch-mode img {
-    cursor: pointer; }
 
-nav {
+.shared-color, .filter-list, .countries .country-list {
+  background: #2b3945;
+  color: white;
+  border-radius: 0.3rem; }
+
+.shared-btn, .switch-mode .switch-btn, .navbar-container .navbar-input, .filter .filter-btn {
+  background: #2b3945;
+  border: none;
+  outline: none;
+  font-size: 0.9rem; }
+
+.header {
+  background: #2b3945;
+  justify-content: space-between;
+  padding: 1rem;
+  white-space: nowrap; }
+  .header .header-text {
+    margin: 0;
+    color: white;
+    font-size: 1.2rem; }
+
+.switch-mode .switch-btn {
+  color: white;
+  cursor: pointer; }
+.switch-mode .switch-text {
+  cursor: pointer; }
+
+.navbar {
   padding: 0 1rem; }
 
-.search {
-  display: flex;
+.navbar-container {
   justify-content: left;
-  align-items: center;
   background: #2b3945;
   padding: 0.5rem;
   margin-top: 1.5rem;
   border-radius: 0.3rem; }
-  .search input {
-    background: #2b3945;
-    border: none;
-    outline: none;
+  .navbar-container .navbar-input {
     padding: 0.5rem 1rem 0.5rem 1rem;
-    font-size: 0.8rem;
-    color: white; }
-  .search img {
+    color: #858585;
+    width: 100%; }
+  .navbar-container .navbar-img {
     margin-left: 1.2rem;
-    width: 15px;
-    height: 25px; }
+    width: 0.9375rem;
+    height: 1.5625rem; }
 
 .filter {
   width: 60%;
-  margin: 2rem 0 0 0;
+  margin: 1.5rem 0 0 0;
   background: #2b3945;
-  display: flex;
   justify-content: space-between;
-  align-items: center;
   border-radius: 0.3rem; }
-  .filter button {
-    padding: 0.8rem 1.5rem 0.8rem 1.5rem;
-    font-size: 0.8rem;
-    border: none;
-    outline: none;
-    background: #2b3945;
+  .filter .filter-btn {
+    padding: 1rem;
     color: white;
     border-radius: 0.3rem; }
-  .filter img {
-    width: 10px;
-    height: 12px;
+  .filter .filter-img {
+    width: 0.625rem;
+    height: 0.75rem;
     margin: 0 1rem 0 0; }
 
 .filter-list {
   width: 60%;
   margin: 0.3rem 0 0 0;
-  background: #2b3945;
-  border-radius: 0.3rem;
   list-style: none;
   padding: 1rem 0 1rem 1.5rem;
-  color: white;
   display: none; }
-  .filter-list li {
+  .filter-list .filter-item {
     margin: 0.5rem 0 0.5rem 0; }
 
 .countries {
   display: grid;
   row-gap: 2rem;
-  margin: 2rem 3rem; }
-  .countries .country-list {
-    background: #2b3945;
-    color: white;
-    border-radius: 0.4rem; }
-  .countries img {
+  margin: 2rem 3rem;
+  text-decoration: none; }
+  .countries .country-img {
     width: 100%;
-    border-radius: 0.4rem 0.4rem 0 0; }
+    height: 11rem;
+    border-radius: 0.3rem 0.3rem 0 0; }
   .countries .country-name {
     padding: 0 0 0 2rem;
     margin: 1rem 0 0 0; }
-  .countries ul {
+  .countries .country-items {
     list-style: none;
     padding: 0 0 1rem 2rem;
     font-weight: 600; }
-  .countries span {
+  .countries .country-details {
     font-weight: 300; }
+
+@media (min-width: 38.75rem) {
+  .header {
+    padding: 1rem 3rem; }
+
+  .countries {
+    grid-template-columns: auto auto;
+    column-gap: 2rem; }
+
+  .navbar {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2rem; }
+    .navbar .navbar-container {
+      width: 20rem; }
+    .navbar .filter {
+      width: 10.63rem; } }
+@media (min-width: 63.75rem) {
+  .countries {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 2rem; }
+
+  .navbar {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2rem; }
+    .navbar .navbar-container {
+      width: 25rem; }
+    .navbar .filter {
+      width: 11.25rem; } }
 
 /*# sourceMappingURL=main.css.map */
