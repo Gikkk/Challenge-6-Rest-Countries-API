@@ -1,5 +1,7 @@
 .navbar{
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar-container{
@@ -9,6 +11,7 @@
   padding: 0.5rem;
   margin-top: 1.5rem;
   border-radius: 0.3rem;
+  box-shadow:  0 1px 3px rgba(0, 0 , 0, 0.8);
 
   .navbar-input{
     @extend .shared-btn;
@@ -19,7 +22,7 @@
 
   .navbar-img{
     margin-left: 1.2rem;
-    width: 0.9375rem;
+    width: 1.3rem;
     height: 1.5625rem;
   }
 }
@@ -31,6 +34,7 @@
   background: $dark-elements;
   justify-content: space-between;
   border-radius: 0.3rem;
+  box-shadow:  0 1px 3px rgba(0, 0 , 0, 0.8);
 
   .filter-btn{
     @extend .shared-btn;
@@ -46,15 +50,21 @@
   }
 }
 
-.filter-list{
-  @extend .shared-color;
-  width: 60%;
-  margin: 0.3rem 0 0 0;
-  list-style: none;
-  padding: 1rem 0 1rem 1.5rem;
-  display: none;
+.filter-toggle{
+  margin: 0 1rem;
 
-  .filter-item{
-    margin: 0.5rem 0 0.5rem 0;
-  }
+  .filter-list{
+    @extend .shared-color;
+    width: 60%;
+    margin: 0.3rem 0 0 0;
+    list-style: none;
+    padding: 1rem 0 1rem 1.5rem;
+    display: none;
+  
+    .filter-item{
+      margin: 0.5rem 0 0.5rem 0;
+      cursor: pointer;
+    }
+  }  
 }
+

@@ -13,7 +13,8 @@
     display: -moz-box;         
     display: -ms-flexbox;      
     display: -webkit-flex;     
-    display: flex;  
+    display: flex;
+    flex-direction: row;  
     justify-content: space-between;
     margin: 0 2rem;
 
@@ -22,6 +23,16 @@
     }
 
     .filter{
+      width: 10.63rem;
+    }
+  }
+
+  .filter-toggle{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3rem;
+
+    .filter-list{
       width: 10.63rem;
     }
   }
@@ -50,6 +61,10 @@
     .filter{
       width: 11.25rem;
     }
+  }
+
+  .filter-list{
+    width: 11.25rem !important;
   }
 
 }
