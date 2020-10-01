@@ -7,8 +7,9 @@ body{
   margin: 0;
   width: 100%;
   background: $dark-background;
+  transition: background-color .5s ease
 }
 
-// .container{
-//   display: grid;
-// }
+body.light{
+  background: $light-background;
+}

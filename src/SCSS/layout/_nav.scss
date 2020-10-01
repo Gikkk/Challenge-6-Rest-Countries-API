@@ -25,6 +25,10 @@
     width: 1.3rem;
     height: 1.5625rem;
   }
+
+  body.light &{
+    background: $dark-text__light-elements;
+  }
 }
 
 .filter{
@@ -47,6 +51,19 @@
     width: 0.625rem;
     height: 0.75rem;
     margin: 0 1rem 0 0;
+  }
+
+  body.light &{
+    background: $dark-text__light-elements;
+  }
+
+  body.light &-btn{
+    color: $light-text;
+  }
+
+  body.light &-img{
+    background: $dark-elements;
+    border-radius: 0.5rem;
   }
 }
 

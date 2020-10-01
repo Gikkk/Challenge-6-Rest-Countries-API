@@ -11,11 +11,21 @@
   background: $dark-elements;
   color: $dark-text__light-elements;
   border-radius: 0.3rem;
+
+  body.light &{
+    background: $dark-text__light-elements;
+    color: $light-text;
+  }
 }
 
 .shared-btn{
-  background: $dark-elements;
+  background: transparent;
   border: none;
   outline: none;
   font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.active{
+  display: block !important;
 }

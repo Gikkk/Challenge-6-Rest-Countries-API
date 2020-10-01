@@ -5,9 +5,13 @@ body {
   font-family: "Nunito Sans", sans-serif;
   margin: 0;
   width: 100%;
-  background: #202c37; }
+  background: #202c37;
+  transition: background-color 0.5s ease; }
 
-.shared-position, .header, .switch-mode, .navbar-container, .filter, .info-container .back {
+body.light {
+  background: #fafafa; }
+
+.shared-position, .header, .switch, .navbar-container, .filter, .info-container .back {
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box;
@@ -23,12 +27,19 @@ body {
   background: #2b3945;
   color: white;
   border-radius: 0.3rem; }
+  body.light .shared-color, body.light .filter-toggle .filter-list, .filter-toggle body.light .filter-list, body.light .countries .country-list, .countries body.light .country-list {
+    background: white;
+    color: #111517; }
 
-.shared-btn, .switch-mode .switch-btn, .navbar-container .navbar-input, .filter .filter-btn, .info-container .back .back-btn {
-  background: #2b3945;
+.shared-btn, .switch .switch-btn, .navbar-container .navbar-input, .filter .filter-btn, .info-container .back .back-btn {
+  background: transparent;
   border: none;
   outline: none;
-  font-size: 0.9rem; }
+  font-size: 0.9rem;
+  font-weight: 600; }
+
+.active {
+  display: block !important; }
 
 .header {
   background: #2b3945;
@@ -36,18 +47,24 @@ body {
   padding: 1rem;
   white-space: nowrap;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.8); }
-  .header .header-text {
+  .header-text {
     margin: 0;
     color: white;
     font-size: 1.2rem; }
+  body.light .header {
+    background: #fafafa; }
+  body.light .header-text {
+    color: #111517; }
 
-.switch-mode .switch-btn {
+.switch .switch-btn {
   color: white;
   cursor: pointer; }
-.switch-mode .switch-icon {
+.switch .switch-icon {
   cursor: pointer;
   width: 1rem;
   height: 1rem; }
+body.light .switch-btn {
+  color: #111517; }
 
 .navbar {
   padding: 0 1rem;
@@ -69,6 +86,8 @@ body {
     margin-left: 1.2rem;
     width: 1.3rem;
     height: 1.5625rem; }
+  body.light .navbar-container {
+    background: white; }
 
 .filter {
   width: 60%;
@@ -85,6 +104,13 @@ body {
     width: 0.625rem;
     height: 0.75rem;
     margin: 0 1rem 0 0; }
+  body.light .filter {
+    background: white; }
+  body.light .filter-btn {
+    color: #111517; }
+  body.light .filter-img {
+    background: #2b3945;
+    border-radius: 0.5rem; }
 
 .filter-toggle {
   margin: 0 1rem; }
@@ -104,10 +130,7 @@ body {
   margin: 2rem 3rem;
   text-decoration: none; }
   .countries .country-list {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-    transition: transform .3s ease; }
-    .countries .country-list:hover {
-      transform: scale(1.1); }
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); }
   .countries .country-img {
     width: 100%;
     height: 11rem;
@@ -179,7 +202,12 @@ body {
     justify-content: space-between;
     margin: 0 3rem; }
     .filter-toggle .filter-list {
-      width: 10.63rem; } }
+      width: 10.63rem; }
+
+  .country-list {
+    transition: transform .3s ease; }
+    .country-list:hover {
+      transform: scale(1.1); } }
 @media (min-width: 63.75rem) {
   .countries {
     grid-template-columns: 1fr 1fr 1fr 1fr;

@@ -37,6 +37,12 @@
     }
   }
 
+  .country-list{
+    transition: transform .3s ease;
+      &:hover{
+        transform: scale(1.1)
+      }
+  }
 }
 
 @media(min-width: 63.75rem){

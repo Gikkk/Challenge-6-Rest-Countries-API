@@ -2,7 +2,7 @@ const countries = document.querySelector('.countries');
 const filterBtn = document.querySelector('.filter');
 const filterList = document.querySelector('.filter-list');
 const filterItem = document.querySelectorAll('.filter-item');
-const darkmodeBtn = document.querySelector('.switch-btn');
+const darkModeBtn = document.querySelector('.switch-btn');
 const navbar = document.querySelector('.navbar');
 
 
@@ -35,58 +35,58 @@ const getData = () => {
       <h2 class="country-name">${responseData[i].name}</h2>
       <ul class="country-items">
         <li>Population: <span class="country-details">${responseData[i].population}</span></li>
-        <li>Region: <span class="country-details">${responseData[i].region}</span></li>
+        <li>Region: <span class="country-details regionFilter">${responseData[i].region}</span></li>
         <li>Capital: <span class="country-details">${responseData[i].capital}</span></li>
       </ul>`
     countries.appendChild(countryList);
 
-    countries.addEventListener('click', () => {
-      moreInfo(responseData[i]);
-    });
+    // countries.addEventListener('click', () => {
+    //   moreInfo(responseData[i]);
+    // });
   }});
 };
 getData()
 
-// Single country info 
-function moreInfo(res){
-  navbar.style.display = 'none';
-  countries.style.display = 'none';
+//------------------------------------------------------------------- optional--------------------------------------
+// function moreInfo(res){
+//   navbar.style.display = 'none';
+//   countries.style.display = 'none';
   
-  const moreInfo = document.querySelector('.more-info')
-  const infoContainer = document.createElement('div'); 
-  infoContainer.className = "info-container"; 
-  infoContainer.innerHTML = `
-  <div class="back">
-    <img src="./images/Left-Arrow-PNG-Pic.png" class='back-img' alt="arrowleft">
-    <button class="back-btn">Back</button>
-  </div>
-  <img src="${res.flag}" alt="flag" class="single-country-img">
-  <h2 class="single-flag">${res.name}</h2>
-  <ul class="more-items">
-    <li>Native Name: <span class="more-details">${res.nativeName}</span></li>
-    <li>Population: <span class="more-details">${res.population}</span></li>
-    <li>Region: <span class="more-details">${res.region}</span></li>
-    <li>Sub Region: <span class="more-details">${res.subregion}</span></li>
-    <li>Capital: <span class="more-details">${res.capital}</span></li>
-  </ul>
-  <ul class="more-items">
-    <li>Top Level Domain: <span class="more-details">${res.topLevelDomain}</span></li>
-    <li>Currencies: <span class="more-details">${res.currencies.map(curr => curr.name)}</span></li>
-    <li>Languages: <span class="more-details">${res.languages.map(languages => languages.name)}</span></li>
-  </ul>
-  <h3 class="border">Border Countries:</h3>
-  <span class="border-list">${res.borders}</span>
-  `
-  moreInfo.appendChild(infoContainer);
+//   const moreInfo = document.querySelector('.more-info')
+//   const infoContainer = document.createElement('div'); 
+//   infoContainer.className = "info-container"; 
+//   infoContainer.innerHTML = `
+//   <div class="back">
+//     <img src="./images/Left-Arrow-PNG-Pic.png" class='back-img' alt="arrowleft">
+//     <button class="back-btn">Back</button>
+//   </div>
+//   <img src="${res.flag}" alt="flag" class="single-country-img">
+//   <h2 class="single-flag">${res.name}</h2>
+//   <ul class="more-items">
+//     <li>Native Name: <span class="more-details">${res.nativeName}</span></li>
+//     <li>Population: <span class="more-details">${res.population}</span></li>
+//     <li>Region: <span class="more-details">${res.region}</span></li>
+//     <li>Sub Region: <span class="more-details">${res.subregion}</span></li>
+//     <li>Capital: <span class="more-details">${res.capital}</span></li>
+//   </ul>
+//   <ul class="more-items">
+//     <li>Top Level Domain: <span class="more-details">${res.topLevelDomain}</span></li>
+//     <li>Currencies: <span class="more-details">${res.currencies.map(curr => curr.name)}</span></li>
+//     <li>Languages: <span class="more-details">${res.languages.map(languages => languages.name)}</span></li>
+//   </ul>
+//   <h3 class="border">Border Countries:</h3>
+//   <span class="border-list">${res.borders}</span>
+//   `
+//   moreInfo.appendChild(infoContainer);
 
-  const backBtn = document.querySelector('.back-btn');
-  backBtn.addEventListener('click', () => {
-      navbar.style.display = "flex";
-      countries.style.display = "grid";
+//   const backBtn = document.querySelector('.back-btn');
+//   backBtn.addEventListener('click', () => {
+//       navbar.style.display = "flex";
+//       countries.style.display = "grid";
       
-      moreInfo.innerHTML = "";
-  });
-}
+//       moreInfo.innerHTML = "";
+//   });
+// }
 
 // search bar 
 function findCountry(){
@@ -108,27 +108,35 @@ function findCountry(){
 
 // Region list display
 filterBtn.addEventListener('click', ()=>{
-  if(filterList.style.display === 'block'){
-    filterList.style.display = 'none'
-  }else{
-    filterList.style.display = 'block'
-  }
+  // optional
+  // if(filterList.style.display === 'block'){
+  //   filterList.style.display = 'none'
+  // }else{
+  //   filterList.style.display = 'block'
+  // }
+  filterList.classList.toggle("active");
+
+  // Region filter 
+  const singleRegionName = Array.from(filterItem);
+  
+  singleRegionName.map(element => {
+    element.addEventListener('click', () => { 
+      let valueFilter = element.textContent
+      let regionsCountries = document.querySelectorAll('.regionFilter');
+      regionsCountries.forEach(regionCountry => {
+        if (regionCountry.innerText.includes(valueFilter) || valueFilter.includes('All') ) {
+            regionCountry.parentElement.parentElement.parentElement.style.display = "block";
+        } else {
+            regionCountry.parentElement.parentElement.parentElement.style.display = "none";
+        }
+      })
+      filterList.classList.remove('active')
+    });
+  });
 })
 
-// filter by region 
-function findByRegion(){
-  const countryList = document.querySelectorAll('.country-list');
-  for(let i=0; i<filterItem.length; i++){
-    regionName = filterItem[i].innerText;
-    if (regionName > -1) {
-      countryList[i].style.display = '';
-    } else {
-      countryList[i].style.display = 'none';
-    }
-  }
-}
-
 // dark mode 
-darkmodeBtn.addEventListener('click', () => {
+darkModeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('light');
   console.log('test');
 })
