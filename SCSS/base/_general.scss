@@ -1,0 +1,15 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: $font-fam;
+  margin: 0;
+  width: 100%;
+  background: $dark-background;
+  transition: background-color .5s ease
+}
+
+body.light{
+  background: $light-background;
+}

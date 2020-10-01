@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="./js/app.js" defer></script>
+  <title>Country || Gikkk</title>
+</head>
+<body>
+  <header class="header">
+    <h1 class="header-text">Where in the world?</h1>
+    <div class="switch">
+      <img src="./images/night.png" class="switch-icon" alt="searchicon">
+      <button class="switch-btn">Dark Mode</button>
+    </div>
+  </header>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <img src="./images/search.png" alt="arrow" class="navbar-img">
+      <input type="text" placeholder="Search for a country..." class="navbar-input" onkeyup="findCountry()">
+    </div>
+    <div class="filter">
+      <button class="filter-btn">Filter by Region</button>
+      <img src="./images/Arrowhead-Down-16.png" alt="arrow" class="filter-img">
+    </div>
+  </nav>
+  <div class="filter-toggle">
+    <div></div>
+    <ul class="filter-list">
+      <li class="filter-item">All</li>
+      <li class="filter-item">Africa</li>
+      <li class="filter-item">America</li>
+      <li class="filter-item">Asia</li>
+      <li class="filter-item">Europe</li>
+      <li class="filter-item">Oceania</li>
+    </ul>
+  </div>
+  <main class="countries"></main>
+  <div class="more-info"></div>
+</body>
+</html>
