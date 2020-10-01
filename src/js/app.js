@@ -27,66 +27,73 @@ const sendHttpRequest = (method, url, data) => {
 // Getting data 
 const getData = () => {
   sendHttpRequest('GET', 'https://restcountries.eu/rest/v2/all').then(responseData => { 
-  for(let i = 0; i < responseData.length; i++){
-    const countryList = document.createElement('div');  
-    countryList.className = "country-list"; 
-    countryList.innerHTML = `
-      <img src="${responseData[i].flag}" alt="flag" class="country-img">
-      <h2 class="country-name">${responseData[i].name}</h2>
-      <ul class="country-items">
-        <li>Population: <span class="country-details">${responseData[i].population}</span></li>
-        <li>Region: <span class="country-details regionFilter">${responseData[i].region}</span></li>
-        <li>Capital: <span class="country-details">${responseData[i].capital}</span></li>
-      </ul>`
-    countries.appendChild(countryList);
+    responseData.forEach(country => {
+      const countryList = document.createElement('div');  
+      countryList.className = "country-list"; 
+      countryList.innerHTML = `
+        <img src="${country.flag}" alt="flag" class="country-img">
+        <h2 class="country-name">${country.name}</h2>
+        <ul class="country-items">
+          <li>Population: <span class="country-details">${country.population}</span></li>
+          <li>Region: <span class="country-details regionFilter">${country.region}</span></li>
+          <li>Capital: <span class="country-details">${country.capital}</span></li>
+        </ul>`
+      countries.appendChild(countryList);
 
-    // countries.addEventListener('click', () => {
-    //   moreInfo(responseData[i]);
-    // });
-  }});
+      countryList.addEventListener('click', ()=>{
+        moreInfo(country)
+      })
+    })
+  });
 };
 getData()
 
-//------------------------------------------------------------------- optional--------------------------------------
-// function moreInfo(res){
-//   navbar.style.display = 'none';
-//   countries.style.display = 'none';
+function moreInfo(country){
+  navbar.style.display = 'none';
+  countries.style.display = 'none';
   
-//   const moreInfo = document.querySelector('.more-info')
-//   const infoContainer = document.createElement('div'); 
-//   infoContainer.className = "info-container"; 
-//   infoContainer.innerHTML = `
-//   <div class="back">
-//     <img src="./images/Left-Arrow-PNG-Pic.png" class='back-img' alt="arrowleft">
-//     <button class="back-btn">Back</button>
-//   </div>
-//   <img src="${res.flag}" alt="flag" class="single-country-img">
-//   <h2 class="single-flag">${res.name}</h2>
-//   <ul class="more-items">
-//     <li>Native Name: <span class="more-details">${res.nativeName}</span></li>
-//     <li>Population: <span class="more-details">${res.population}</span></li>
-//     <li>Region: <span class="more-details">${res.region}</span></li>
-//     <li>Sub Region: <span class="more-details">${res.subregion}</span></li>
-//     <li>Capital: <span class="more-details">${res.capital}</span></li>
-//   </ul>
-//   <ul class="more-items">
-//     <li>Top Level Domain: <span class="more-details">${res.topLevelDomain}</span></li>
-//     <li>Currencies: <span class="more-details">${res.currencies.map(curr => curr.name)}</span></li>
-//     <li>Languages: <span class="more-details">${res.languages.map(languages => languages.name)}</span></li>
-//   </ul>
-//   <h3 class="border">Border Countries:</h3>
-//   <span class="border-list">${res.borders}</span>
-//   `
-//   moreInfo.appendChild(infoContainer);
+  
+  const moreInfo = document.querySelector('.more-info')
+  const infoContainer = document.createElement('div'); 
+  infoContainer.className = "info-container"; 
+  infoContainer.innerHTML = `
+  <div class="back">
+    <img src="./images/Left-Arrow-PNG-Pic.png" class='back-img' alt="arrowleft">
+    <button class="back-btn">Back</button>
+  </div>
+  <div class="details">
+    <img src="${country.flag}" alt="flag" class="single-country-img">
+    <div>
+      <h2>${country.name}</h2>
+      <ul class="more-items">
+        <li>Native Name: <span class="more-details">${country.nativeName}</span></li>
+        <li>Population: <span class="more-details">${country.population}</span></li>
+        <li>Region: <span class="more-details">${country.region}</span></li>
+        <li>Sub Region: <span class="more-details">${country.subregion}</span></li>
+        <li>Capital: <span class="more-details">${country.capital}</span></li>
+      </ul>
+    </div>
+    <ul class="more-items">
+      <li>Top Level Domain: <span class="more-details">${country.topLevelDomain}</span></li>
+      <li>Currencies: <span class="more-details">${country.currencies.map(curr => curr.name)}</span></li>
+      <li>Languages: <span class="more-details">${country.languages.map(languages => languages.name)}</span></li>
+    </ul>
+    <div class="border">
+      <h3>Border Countries:</h3>
+      <span class="border-list">${country.borders}</span>
+    </div>
+  </div>
+  `
+  moreInfo.appendChild(infoContainer);
 
-//   const backBtn = document.querySelector('.back-btn');
-//   backBtn.addEventListener('click', () => {
-//       navbar.style.display = "flex";
-//       countries.style.display = "grid";
+  const backBtn = document.querySelector('.back-btn');
+  backBtn.addEventListener('click', () => {
+      navbar.style.display = "flex";
+      countries.style.display = "grid";
       
-//       moreInfo.innerHTML = "";
-//   });
-// }
+      moreInfo.innerHTML = "";
+  });
+}
 
 // search bar 
 function findCountry(){

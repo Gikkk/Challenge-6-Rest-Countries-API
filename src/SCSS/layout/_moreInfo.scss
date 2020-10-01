@@ -1,6 +1,3 @@
-
-// -------------------------------------------------Optional----------------------------------------------
-
 .more-info{
   margin: 0 2rem;
 }
@@ -27,23 +24,45 @@
         @extend .shared-btn;
         color: $dark-text__light-elements;
       }
+
+      body.light &-btn{
+        color: $light-text;
+      }
+
+      body.light &{
+        background: $dark-text__light-elements;
+      }
   }
 
   .single-country-img{
     width: 100%;
     height: 200px;
     margin: 3rem 0 1.5rem 0;
-    max-width: 500px;
+    max-width: 400px;
+
+    body.light &{
+      box-shadow: 0  1px 3px rgba(0, 0, 0, 0.8);
+    }
   }
   
   .more-items{
     list-style: none;
     padding: 0;
-    font-weight: 600;
+    font-weight: 800;
+    line-height: 1.5rem;
   }
 
   .more-details{
-    font-weight: 300;
+    font-weight: 600;
+  }
+
+  .border-list{
+    padding: 1rem 0;
+    font-weight: 600;
+  }
+
+  body.light &{
+    color: $light-text;
   }
 }
 

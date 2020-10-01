@@ -43,6 +43,24 @@
         transform: scale(1.1)
       }
   }
+
+  // single country
+  .details{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    margin: 2rem 0;
+    justify-content: left;
+    align-items: center;
+    column-gap: 5rem;
+  }
+
+  .single-country-img{
+    margin: 0 !important;
+    height: 420px !important;
+    grid-row-start: 1;
+    grid-row-end: 4;
+  }
 }
 
 @media(min-width: 63.75rem){
@@ -73,4 +91,9 @@
     width: 11.25rem !important;
   }
 
+  // single country 
+  .single-country-img{
+    max-width: 600px !important;
+    height: 500px !important;
+  }
 }
