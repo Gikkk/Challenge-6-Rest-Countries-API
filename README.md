@@ -39,4 +39,4 @@ There are no assets for this challenge, as the country flags will be pulled from
 
 There is a `style-guide.md` file, which contains the information you'll need, such as color palette and fonts.
 
-
+My solution: https://gikkk.github.io/Challenge-6-Rest-Countries-API/
