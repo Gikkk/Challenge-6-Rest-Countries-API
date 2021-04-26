@@ -28,7 +28,7 @@ const sendHttpRequest = (method, url, data) => {
 const getData = () => {
   sendHttpRequest('GET', 'https://restcountries.eu/rest/v2/all').then(responseData => { 
     responseData.forEach(country => {
-      const countryList = document.createElement('div');  
+      const countryList = document.createElement('sec');  
       countryList.className = "country-list"; 
       countryList.innerHTML = `
         <img src="${country.flag}" alt="flag" class="country-img">
@@ -54,7 +54,7 @@ function moreInfo(country){
   
   
   const moreInfo = document.querySelector('.more-info')
-  const infoContainer = document.createElement('div'); 
+  const infoContainer = document.createElement('section'); 
   infoContainer.className = "info-container"; 
   infoContainer.innerHTML = `
   <div class="back">
@@ -63,7 +63,7 @@ function moreInfo(country){
   </div>
   <div class="details">
     <img src="${country.flag}" alt="flag" class="single-country-img">
-    <div>
+    <article>
       <h2>${country.name}</h2>
       <ul class="more-items">
         <li>Native Name: <span class="more-details">${country.nativeName}</span></li>
@@ -72,16 +72,16 @@ function moreInfo(country){
         <li>Sub Region: <span class="more-details">${country.subregion}</span></li>
         <li>Capital: <span class="more-details">${country.capital}</span></li>
       </ul>
-    </div>
+    </article>
     <ul class="more-items">
       <li>Top Level Domain: <span class="more-details">${country.topLevelDomain}</span></li>
       <li>Currencies: <span class="more-details">${country.currencies.map(curr => curr.name)}</span></li>
       <li>Languages: <span class="more-details">${country.languages.map(languages => languages.name)}</span></li>
     </ul>
-    <div class="border">
+    <article class="border">
       <h3>Border Countries:</h3>
       <span class="border-list">${country.borders}</span>
-    </div>
+    </article>
   </div>
   `
   moreInfo.appendChild(infoContainer);
