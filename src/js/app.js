@@ -28,7 +28,7 @@ const sendHttpRequest = (method, url, data) => {
 const getData = () => {
   sendHttpRequest('GET', 'https://restcountries.eu/rest/v2/all').then(responseData => { 
     responseData.forEach(country => {
-      const countryList = document.createElement('sec');  
+      const countryList = document.createElement('section');  
       countryList.className = "country-list"; 
       countryList.innerHTML = `
         <img src="${country.flag}" alt="flag" class="country-img">
