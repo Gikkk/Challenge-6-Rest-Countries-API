@@ -63,7 +63,7 @@ function moreInfo(country){
   </div>
   <div class="details">
     <img src="${country.flag}" alt="flag" class="single-country-img">
-    <article>
+    <section>
       <h2>${country.name}</h2>
       <ul class="more-items">
         <li>Native Name: <span class="more-details">${country.nativeName}</span></li>
@@ -72,16 +72,16 @@ function moreInfo(country){
         <li>Sub Region: <span class="more-details">${country.subregion}</span></li>
         <li>Capital: <span class="more-details">${country.capital}</span></li>
       </ul>
-    </article>
+    </section>
     <ul class="more-items">
       <li>Top Level Domain: <span class="more-details">${country.topLevelDomain}</span></li>
       <li>Currencies: <span class="more-details">${country.currencies.map(curr => curr.name)}</span></li>
       <li>Languages: <span class="more-details">${country.languages.map(languages => languages.name)}</span></li>
     </ul>
-    <article class="border">
+    <section class="border">
       <h3>Border Countries:</h3>
       <span class="border-list">${country.borders}</span>
-    </article>
+    </section>
   </div>
   `
   moreInfo.appendChild(infoContainer);
@@ -145,5 +145,4 @@ filterBtn.addEventListener('click', ()=>{
 // dark mode 
 darkModeBtn.addEventListener('click', () => {
   document.body.classList.toggle('light');
-  console.log('test');
 })
